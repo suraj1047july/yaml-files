@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: 2010-09-09
+Parameters:
+  InstanceKey:
+    Type: String
+    Description: Key for the instance
+Resources:
+  Ec2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-090fa75af13c156b4 
+      InstanceType: t2.micro
+      SubnetId: subnet-02c9badd035177694
+      KeyName: !Ref InstanceKey
