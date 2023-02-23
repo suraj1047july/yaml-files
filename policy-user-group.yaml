@@ -1,0 +1,63 @@
+---
+Resources:
+    Softwareadmingroup:
+      Type: AWS::IAM::Group
+      Properties:
+        GroupName: Software-admin-group
+        ManagedPolicyArns:
+          - arn:aws:iam::aws:policy/AWSCodePipeline_FullAccess
+          - arn:aws:iam::aws:policy/AdministratorAccess-AWSElasticBeanstalk
+    usersoftwareadmin:
+      Type: AWS::IAM::User
+      Properties:
+        UserName: sf-admin1
+        Groups:
+          - !Ref Softwareadmingroup
+    Databaseadmingroup:
+      Type: AWS::IAM::Group
+      Properties:
+        GroupName: Database-admin-group
+        ManagedPolicyArns:
+          - arn:aws:iam::aws:policy/AmazonRDSFullAccess
+    userdatabaseadmin:
+      Type: AWS::IAM::User
+      Properties:
+        UserName: DB-admin1
+        Groups:
+          - !Ref Databaseadmingroup
+    Logadmingroup:
+      Type: AWS::IAM::Group
+      Properties:
+        GroupName: Log-admin-group
+        ManagedPolicyArns:
+          - arn:aws:iam::aws:policy/CloudWatchFullAccess
+    userlogadmin:
+      Type: AWS::IAM::User
+      Properties:
+        UserName: log-admin1
+        Groups:
+          - !Ref Logadmingroup
+    Networkadmingroup:
+      Type: AWS::IAM::Group
+      Properties:
+        GroupName: Network-admin-group
+        ManagedPolicyArns:
+          - arn:aws:iam::aws:policy/AmazonVPCFullAccess
+    usernetworkadmin:
+      Type: AWS::IAM::User
+      Properties:
+        UserName: network-admin1
+        Groups:
+          - !Ref Networkadmingroup 
+    EC2admingroup:
+      Type: AWS::IAM::Group
+      Properties:
+        GroupName: EC2-admin-group
+        ManagedPolicyArns:
+          - arn:aws:iam::aws:policy/AmazonEC2FullAccess
+    usernetworkadmin:
+      Type: AWS::IAM::User
+      Properties:
+        UserName: EC2-admin1
+        Groups: 
+          - !Ref EC2admingroup
