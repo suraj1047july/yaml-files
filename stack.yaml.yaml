@@ -221,8 +221,8 @@ Resources:
               mv htaccess.txt .htaccess
               chkconfig httpd on
               service httpd start
-          MetadataOptions:
-           HttpTokens: required
+        MetadataOptions:
+          HttpTokens: required
   AutoScalingGroup:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties:
@@ -302,6 +302,4 @@ Resources:
       MasterUserPassword: MyPassword
                               
 
-
   
-
